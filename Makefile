@@ -3,8 +3,10 @@ FLAGS = -Wall  -Werror -Wextra
 SRC = ${wildcard ft_*.c}
 BSRC = ${wildcard $(BONUSDIR)/ft_*.c}
 PSRC = ${wildcard $(PRINTDIR)/ft_*.c}
+GNLSRC = ${wildcard $(GNLDIR)/*.c}
 BONUSDIR = bonus
 PRINTDIR = ft_printf
+GNLDIR = get_next_line
 SOLIB =  lib 
 
 #OBJ = $(patsubst  *.c, *.o, $(SRC))
@@ -17,7 +19,7 @@ CC = cc
 
 ##all:	${NAME} 
 
-all: bonus print ${NAME}  
+all: bonus print gnl ${NAME}  
 	${MAKE} so
 	${MAKE} clean 
 
@@ -32,6 +34,12 @@ print:
 	@cp libft.h $(PRINTDIR)
 	gcc ${FLAGS} -c ${PSRC}
 	ar rcs ${PRINTDIR}.apt *.o
+
+gnl:
+	@cp libft.h $(GNLDIR)
+	gcc ${FLAGS} -c ${PSRC}
+	ar rcs ${GNLDIR}.apt *.o
+
 
 ${NAME}:
 	gcc ${FLAGS} -c ${SRC}
