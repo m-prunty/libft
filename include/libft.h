@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>
-
+# include "get_next_line_bonus.h"
 #ifndef STRUCT_T_LIST
 # define STRUCT_T_LIST
 typedef struct s_list

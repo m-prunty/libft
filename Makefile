@@ -1,17 +1,18 @@
 NAME = libft
-FLAGS = -Wall  -Werror -Wextra  
+FLAGS = -Wall  -Werror -Wextra  -g
 
 BONUSDIR = bonus
 PRINTDIR = ft_printf
 GNLDIR = get_next_line
+INC = include
 
-SRC = ${wildcard ft_*.c}
+SRC = ${wildcard *.c}
 BSRC = ${wildcard $(BONUSDIR)/ft_*.c}
 PSRC = ${wildcard $(PRINTDIR)/ft_*.c}
 GNLSRC = ${wildcard $(GNLDIR)/*bonus.c}
 
 SOLIB =  lib 
-CC = cc
+CC = cc ${FLAGS} -I${INC}/ -c 
 
 all: bonus print gnl ${NAME}  
 	${MAKE} so
@@ -19,22 +20,19 @@ all: bonus print gnl ${NAME}
 
 
 bonus:
-	@cp libft.h $(BONUSDIR)
-	gcc ${FLAGS} -c ${BSRC}
+	${CC} ${BSRC}
 	ar rcs ${BONUSDIR}.apt *.o
 
 print: 
-	@cp libft.h $(PRINTDIR)
-	gcc ${FLAGS} -c ${PSRC}
+	${CC} ${PSRC}
 	ar rcs ${PRINTDIR}.apt *.o
 
 gnl:
-	gcc ${FLAGS} -c ${GNLSRC}
-	ar rcs ${GNLDIR}.apt *.o
+	@cp ${GNLSRC} .
 
 
 ${NAME}:
-	gcc ${FLAGS} -c ${SRC}
+	${CC} ${SRC}
 	ar rcs ${NAME}.a *.o
 
 so:	
@@ -43,7 +41,7 @@ so:
 ##gcc -nostartfiles -shared -o libft.so $(OBJ) 
 ##${clean}
 
-clean::
+clean:
 	rm -f *.o
 
 fclean: clean
