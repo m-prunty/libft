@@ -6,7 +6,7 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 01:42:32 by mprunty           #+#    #+#             */
-/*   Updated: 2024/06/03 19:37:51 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/12/18 19:34:30 by potz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>
-# include "get_next_line_bonus.h"
+//# include "get_next_line_bonus.h"
 #ifndef STRUCT_T_LIST
 # define STRUCT_T_LIST
 typedef struct s_list
@@ -65,12 +65,12 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 //BONUS
 t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new_ele);
 int		ft_lstsize(t_list *lst);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new_ele);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new_ele);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
@@ -88,5 +88,9 @@ int		ft_atoi_base(const char *nptr, int base);
 
 //get_next_line
 char    *get_next_line(int fd);
+
+// extras
+int		ft_isnumi(char *str);
+int		ft_isnumf(char *str, int dec);
 
 #endif

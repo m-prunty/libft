@@ -6,12 +6,11 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 21:18:02 by mprunty           #+#    #+#             */
-/*   Updated: 2024/01/12 22:56:07 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/12/18 18:18:27 by potz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 #include "ft_printf.h"
-#include "libft.h"
 
 int	ft_iputnum(long long n, int base, int caps)
 {

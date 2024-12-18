@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 18:53:50 by mprunty           #+#    #+#             */
-/*   Updated: 2024/04/15 18:53:59 by mprunty          ###   ########.fr       */
+/*   Created: 20../15 18:53:50 by mprunty           #+#    #+#             */
+/*   Updated: 2024/12/18 19:21:41 by potz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list
-	*ft_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*elt;
 

@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 18:50:56 by mprunty           #+#    #+#             */
-/*   Updated: 2024/04/15 18:51:09 by mprunty          ###   ########.fr       */
+/*   Created: 20../15 18:50:56 by mprunty           #+#    #+#             */
+/*   Updated: 2024/12/18 19:20:21 by potz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void
-	ft_lstadd_front(t_list **alst, t_list *new)
+	ft_lstadd_front(t_list **alst, t_list *new_ele)
 {
 	if (alst)
 	{
 		if (*alst)
-			new->next = *alst;
-		*alst = new;
+			new_ele->next = *alst;
+		*alst = new_ele;
 	}
 }

@@ -6,13 +6,12 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 22:18:31 by mprunty           #+#    #+#             */
-/*   Updated: 2024/01/12 22:49:30 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/12/18 18:19:38 by potz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdarg.h>
 #include <unistd.h>
 #include "ft_printf.h"
-#include "libft.h"
 
 int	_ftprintf_parse(char spec, va_list argp)
 {

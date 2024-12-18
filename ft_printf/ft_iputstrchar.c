@@ -6,11 +6,11 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:45:44 by mprunty           #+#    #+#             */
-/*   Updated: 2024/01/12 22:56:51 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/12/18 18:18:46 by potz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_iputchar(int c)
 {

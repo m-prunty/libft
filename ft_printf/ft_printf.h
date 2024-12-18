@@ -6,7 +6,7 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 01:42:32 by mprunty           #+#    #+#             */
-/*   Updated: 2024/01/10 14:16:42 by mprunty          ###   ########.fr       */
+/*   Updated: 2024/12/18 18:19:26 by potz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>
-# include "libft.h"
+# include "../include/libft.h"
 /*typedef struct s_list
 {
 	void			*content;
