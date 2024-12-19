@@ -100,12 +100,14 @@ ALL_OBJS := $(OBJECTS) $(BOBJECTS) $(POBJECTS) $(GOBJECTS) $(EOBJECTS)
 ################################################################################
 #                                 PROGRESS BAR                                 #
 ################################################################################
-TOTAL_FILES = $(shell echo $(ALL_OBJS) | wc -w)
+TOTAL_FILES = $(words $(ALL_OBJS) )
 CURR_FILE   := 0
 
 define progress_bar
 $(eval CURR_FILE = $(shell expr $(CURR_FILE) + 1))
-@printf "\r$(CYAN)⌛ [%-50s] %d/%d files\n" "$$(printf '#%.0s' $$(seq 1 $$(expr $(CURR_FILE) \* 50 / $(TOTAL_FILES))))" $(CURR_FILE) $(TOTAL_FILES)
+@printf "\r$(CYAN)⌛ [%-50s] %d/%d files$(CLR_RMV) \n" \
+	"$$(printf '#%.0s' $$(seq 1 $$(expr $(CURR_FILE) \* 50 / $(TOTAL_FILES)))) " \
+	$(CURR_FILE) $(TOTAL_FILES) 
 endef
 ################################################################################
 #                                COMPILATION                                   #
