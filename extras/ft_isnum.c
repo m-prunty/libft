@@ -30,7 +30,10 @@ int ft_isnumf(char *str, int dec)
 		return (ft_isnumf(++str, dec) * 1);
 	return (0);
 }
-
+/**
+ * @brief main function to test the isnumi and isnumf functions
+ *
+ * @return int
 int main()
 {
 	char *str1 = "123.456";
@@ -43,3 +46,4 @@ int main()
 	ft_printf("isnumf: %i\n", ft_isnumf("0.", 1));
 	return (0);
 }
+ */
