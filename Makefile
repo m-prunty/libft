@@ -1,17 +1,17 @@
 ################################################################################
 #                                     CONFIG                                   #
 ################################################################################
-NAME := libft.a
-FLAGS := -Wall -Werror -Wextra -g
+NAME	:= libft.a
+FLAGS	:= -Wall -Werror -Wextra -g
 
-BDIR := bonus
-PDIR := ft_printf
-GDIR := get_next_line
-EDIR := extras
-OBJDIR := objects
-INC := include
+BDIR	:= bonus
+PDIR	:= ft_printf
+GDIR	:= get_next_line
+EDIR	:= extras
+OBJDIR	:= objects
+INCLUDE	:= include
 
-CC := gcc ${FLAGS} -I${INC} 
+CC := gcc ${FLAGS} -I${INCLUDE} 
 ################################################################################
 #                                     COLOURS                                  #
 ################################################################################
@@ -27,67 +27,65 @@ BOLD        := \033[1m
 #                                  ALL SRCS                                    #
 ################################################################################
 SRC := \
-						ft_atoi.c \
-						ft_atoi_base.c \
-						ft_bzero.c \
-						ft_calloc.c \
-						ft_isalnum.c \
-						ft_isalpha.c \
-						ft_isascii.c \
-						ft_isdigit.c \
-						ft_isprint.c \
-						ft_itoa.c \
-						ft_memchr.c \
-						ft_memcmp.c \
-						ft_memcpy.c \
-						ft_memmove.c \
-						ft_memset.c \
-						ft_putchar_fd.c \
-						ft_putendl_fd.c \
-						ft_putnbr_fd.c \
-						ft_putstr_fd.c \
-						ft_split.c \
-						ft_strchr.c \
-						ft_strdup.c \
-						ft_striteri.c \
-						ft_strjoin.c \
-						ft_strlcat.c \
-						ft_strlcpy.c \
-						ft_strlen.c \
-						ft_strmapi.c \
-						ft_strncmp.c \
-						ft_strnstr.c \
-						ft_strrchr.c \
-						ft_strtrim.c \
-						ft_substr.c \
-						ft_tolower.c \
-						ft_toupper.c \
+	   ft_atoi.c \
+	   ft_atoi_base.c \
+	   ft_bzero.c \
+	   ft_calloc.c \
+	   ft_isalnum.c \
+	   ft_isalpha.c \
+	   ft_isascii.c \
+	   ft_isdigit.c \
+	   ft_isprint.c \
+	   ft_itoa.c \
+	   ft_memchr.c \
+	   ft_memcmp.c \
+	   ft_memcpy.c \
+	   ft_memmove.c \
+	   ft_memset.c \
+	   ft_putchar_fd.c \
+	   ft_putendl_fd.c \
+	   ft_putnbr_fd.c \
+	   ft_putstr_fd.c \
+	   ft_split.c \
+	   ft_strchr.c \
+	   ft_strdup.c \
+	   ft_striteri.c \
+	   ft_strjoin.c \
+	   ft_strlcat.c \
+	   ft_strlcpy.c \
+	   ft_strlen.c \
+	   ft_strmapi.c \
+	   ft_strncmp.c \
+	   ft_strnstr.c \
+	   ft_strrchr.c \
+	   ft_strtrim.c \
+	   ft_substr.c \
+	   ft_tolower.c \
+	   ft_toupper.c \
 
 BSRC := $(addprefix $(BDIR)/, \
-						ft_lstadd_front.c \
-						ft_lstclear.c \
-						ft_lstdelone.c \
-						ft_lstiter.c \
-						ft_lstlast.c \
-						ft_lstmap.c \
-						ft_lstnew.c \
-						ft_lstsize.c \
- 						ft_lstadd_back.c \
-						)
+		ft_lstadd_front.c \
+		ft_lstclear.c \
+		ft_lstdelone.c \
+		ft_lstiter.c \
+		ft_lstlast.c \
+		ft_lstmap.c \
+		ft_lstnew.c \
+		ft_lstsize.c \
+		ft_lstadd_back.c \
+		)
 PSRC :=  $(addprefix $(PDIR)/, \
-						ft_iputnums.c \
-						ft_iputstrchar.c \
-						ft_printf.c \
-						)
+		 ft_iputnums.c \
+		 ft_iputstrchar.c \
+		 ft_printf.c \
+		 )
 GSRC := $(addprefix $(GDIR)/, \
-						get_next_line.c \
-						get_next_line_bonus.c \
-						get_next_line_utils.c \
-						get_next_line_utils_bonus.c \
-						)
+		get_next_line_bonus.c \
+		get_next_line_utils_bonus.c \
+		)
 ESRC := $(addprefix $(EDIR)/, \
-						ft_isnum.c \
-						)
+		ft_isnum.c \
+		)
 
 ################################################################################
 #                                 CREATE OBJS                                  #
@@ -106,8 +104,8 @@ TOTAL_FILES = $(shell echo $(ALL_OBJS) | wc -w)
 CURR_FILE   := 0
 
 define progress_bar
-	$(eval CURR_FILE = $(shell expr $(CURR_FILE) + 1))
-	@printf "\r$(CYAN)⌛ [%-50s] %d/%d files\n" "$$(printf '#%.0s' $$(seq 1 $$(expr $(CURR_FILE) \* 50 / $(TOTAL_FILES))))" $(CURR_FILE) $(TOTAL_FILES)
+$(eval CURR_FILE = $(shell expr $(CURR_FILE) + 1))
+@printf "\r$(CYAN)⌛ [%-50s] %d/%d files\n" "$$(printf '#%.0s' $$(seq 1 $$(expr $(CURR_FILE) \* 50 / $(TOTAL_FILES))))" $(CURR_FILE) $(TOTAL_FILES)
 endef
 ################################################################################
 #                                COMPILATION                                   #
@@ -131,19 +129,19 @@ bonus: $(OBJECTS) $(BOBJECTS)
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR) $(OBJDIR)/$(BDIR) $(OBJDIR)/$(PDIR) \
-				$(OBJDIR)/$(GDIR) $(OBJDIR)/$(EDIR)
+		$(OBJDIR)/$(GDIR) $(OBJDIR)/$(EDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 	$(call progress_bar)
 
 clean:
 	@echo -n "Do you want to clean libft object files? [y/N] " && read ans && \
 		if [ $${ans:-N} = y ]; then \
-			echo "Cleaning objects..."; \
-			rm -f $(ALL_OBJS); \
-			rm -rf $(OBJDIR); \
-			echo "$(RED)🗑️  Cleaned object files$(CLR_RMV)"; \
+		echo "Cleaning objects..."; \
+		rm -f $(ALL_OBJS); \
+		rm -rf $(OBJDIR); \
+		echo "$(RED)🗑️  Cleaned object files$(CLR_RMV)"; \
 		else \
-			echo "$(GREEN)✅ Clean aborted$(CLR_RMV)"; \
+		echo "$(GREEN)✅ Clean aborted$(CLR_RMV)"; \
 		fi
 
 fclean: clean
