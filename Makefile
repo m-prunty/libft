@@ -112,7 +112,29 @@ endef
 ################################################################################
 #                                COMPILATION                                   #
 ################################################################################
-all: banner $(NAME) 
+all: banner check-and-reinit-submodules $(NAME) 
+
+
+$(NAME):  $(ALL_OBJS)
+	@echo "\n$(GREEN)✅ All files compiled successfully!$(CLR_RMV)"
+	@$(AR) -rcs $@ $^
+	@echo "$(GREEN)📚 Library $(YELLOW)$(NAME)$(GREEN) created successfully!$(CLR_RMV)"
+
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(OBJDIR) $(OBJDIR)/$(BDIR) $(OBJDIR)/$(PDIR) \
+		$(OBJDIR)/$(GDIR) $(OBJDIR)/$(EDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+	$(call progress_bar)
+
+bonus: $(OBJECTS) $(BOBJECTS)
+	$(AR) -rcs $(NAME) $?
+
+
+check-and-reinit-submodules:
+	@if git submodule status | egrep -q '^[-+]'; then \
+		echo "INFO: Need to reinitialize git submodules"; \
+		git submodule update --init; \
+    fi
 
 banner:
 	@printf "%b" "$(PURPLE)"
@@ -120,20 +142,6 @@ banner:
 	@echo "║                         Building libft                        ║"
 	@echo "╚═══════════════════════════════════════════════════════════════╝"
 	@printf "%b" "$(CLR_RMV)"
-
-$(NAME): $(ALL_OBJS)
-	@echo "\n$(GREEN)✅ All files compiled successfully!$(CLR_RMV)"
-	@$(AR) -rcs $@ $^
-	@echo "$(GREEN)📚 Library $(YELLOW)$(NAME)$(GREEN) created successfully!$(CLR_RMV)"
-
-bonus: $(OBJECTS) $(BOBJECTS)
-	$(AR) -rcs $(NAME) $?
-
-$(OBJDIR)/%.o: %.c
-	@mkdir -p $(OBJDIR) $(OBJDIR)/$(BDIR) $(OBJDIR)/$(PDIR) \
-		$(OBJDIR)/$(GDIR) $(OBJDIR)/$(EDIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-	$(call progress_bar)
 
 clean:
 	@echo -n "Do you want to clean libft object files? [y/N] " && read ans && \
@@ -152,7 +160,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus banner
+.PHONY: all clean fclean re bonus banner check-and-reinit-submodules
 
 ################################################################################
 #                                 END                                          #
