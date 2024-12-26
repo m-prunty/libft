@@ -6,25 +6,25 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 01:42:32 by mprunty           #+#    #+#             */
-/*   Updated: 2024/12/18 19:34:30 by potz             ###   ########.fr       */
+/*   Updated: 2024/12/26 23:22:14 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #ifndef LIBFT_H
 # define LIBFT_H 
 
 # include <stdlib.h>
 # include <limits.h>
 # include <stdint.h>
-//# include "get_next_line_bonus.h"
-#ifndef STRUCT_T_LIST
-# define STRUCT_T_LIST
+
+# ifndef STRUCT_T_LIST
+#  define STRUCT_T_LIST
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
-#endif
+# endif
 
 int		ft_isupper(int c);
 int		ft_islower(int c);
@@ -87,7 +87,7 @@ int		ft_isblank(char c);
 int		ft_atoi_base(const char *nptr, int base);
 
 //get_next_line
-char    *get_next_line(int fd);
+char	*get_next_line(int fd);
 
 // extras
 int		ft_isnumi(char *str);

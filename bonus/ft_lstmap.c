@@ -6,14 +6,12 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20../15 18:53:23 by mprunty           #+#    #+#             */
-/*   Updated: 2024/12/18 19:21:39 by potz             ###   ########.fr       */
+/*   Updated: 2024/12/26 23:18:51 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-t_list
-	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *))
 {
 	t_list	*first;
 	t_list	*new_ele;
@@ -23,11 +21,12 @@ t_list
 	first = NULL;
 	while (lst)
 	{
-		if (!(new_ele = ft_lstnew((*f)(lst->content))))
+		new_ele = ft_lstnew((*f)(lst->content));
+		if (!(new_ele))
 		{
 			while (first)
 			{
-				new_ele= first->next;
+				new_ele = first->next;
 				(*del)(first->content);
 				free(first);
 				first = new_ele;
