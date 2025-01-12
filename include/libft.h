@@ -6,11 +6,11 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 01:42:32 by mprunty           #+#    #+#             */
-/*   Updated: 2024/12/26 23:22:14 by mprunty          ###   ########.fr       */
+/*   Updated: 2025/01/12 04:49:32 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
-# define LIBFT_H 
+# define LIBFT_H
 
 # include <stdlib.h>
 # include <limits.h>
@@ -83,14 +83,15 @@ int		ft_iputptr(size_t argp);
 int		ft_iputchar(int c);
 int		ft_iputstr(char *str);
 int		ft_printf(const char *format, ...);
-int		ft_isblank(char c);
+int		ft_isspace(char c);
 int		ft_atoi_base(const char *nptr, int base);
 
 //get_next_line
 char	*get_next_line(int fd);
 
 // extras
+int		ft_isnum(char *str);
 int		ft_isnumi(char *str);
-int		ft_isnumf(char *str, int dec);
+int		ft_isnumf(char *str);
 
 #endif
