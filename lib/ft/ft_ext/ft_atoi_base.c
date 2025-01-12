@@ -6,7 +6,7 @@
 /*   By: mprunty <mprunty@student.42london.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:20:04 by mprunty           #+#    #+#             */
-/*   Updated: 2024/12/26 23:20:09 by mprunty          ###   ########.fr       */
+/*   Updated: 2025/01/12 20:02:40 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -26,7 +26,7 @@ int	ft_atoi_base(const char *nptr, int base)
 
 	res = 0;
 	neg = 1;
-	while (ft_isblank(*nptr))
+	while (ft_isspace(*nptr))
 		nptr ++;
 	if (nptr[0] == '-' || nptr[0] == '+')
 	{

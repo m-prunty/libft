@@ -6,7 +6,7 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 01:55:27 by mprunty           #+#    #+#             */
-/*   Updated: 2025/01/12 02:53:57 by mprunty          ###   ########.fr       */
+/*   Updated: 2025/01/12 19:58:25 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -20,7 +20,6 @@ int	ft_isblank(char c)
 
 int	ft_atoi(const char *nptr)
 {
-	int	n;
 	int	res;
 	int	neg;
 
