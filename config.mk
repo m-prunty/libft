@@ -1,5 +1,6 @@
 # config.mk
 # Parent: ./Makefile
+# Header: ./include/libft.h
 CC      := gcc
 CFLAGS  := -Wall -Werror -Wextra -g
 INCLUDE := -Iinclude

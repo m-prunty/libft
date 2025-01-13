@@ -1,17 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 19:47:50 by mprunty           #+#    #+#             */
-/*   Updated: 2023/11/23 18:06:16 by mprunty          ###   ########.fr       */
+/*   Created: 2023/11/07 01:55:27 by mprunty           #+#    #+#             */
+/*   Updated: 2025/01/12 22:20:32 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_bzero(void *s, int n)
+int	ft_atoi(const char *nptr)
 {
-	ft_memset(s, '\0', n);
+	int	res;
+	int	neg;
+
+	res = 0;
+	neg = 1;
+	while (ft_isspace(*nptr))
+		nptr ++;
+	if (nptr[0] == '-' || nptr[0] == '+')
+	{
+		if (nptr[0] == '-')
+			neg *= -1;
+		nptr++;
+	}
+	while (ft_isdigit(*nptr))
+	{
+		res = (res *10 + (*nptr - 48));
+		nptr++;
+	}
+	return (res * neg);
 }

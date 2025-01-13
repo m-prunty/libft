@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 01:55:27 by mprunty           #+#    #+#             */
-/*   Updated: 2025/01/12 19:58:25 by mprunty          ###   ########.fr       */
+/*   Updated: 2025/01/12 22:42:43 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isblank(char c)
+long	ft_atoi(const char *nptr)
 {
-	if ((c >= 9 && c <= 13) || c == 32)
-		return (1);
-	return (0);
-}
-
-int	ft_atoi(const char *nptr)
-{
-	int	res;
-	int	neg;
+	long	res;
+	int		neg;
 
 	res = 0;
 	neg = 1;
-	while (ft_isblank(*nptr))
+	while (ft_isspace(*nptr))
 		nptr ++;
 	if (nptr[0] == '-' || nptr[0] == '+')
 	{
@@ -35,7 +28,7 @@ int	ft_atoi(const char *nptr)
 	}
 	while (ft_isdigit(*nptr))
 	{
-		res *= 10 + (*nptr - 48);
+		res = (res *10 + (*nptr - 48));
 		nptr++;
 	}
 	return (res * neg);

@@ -1,18 +1,20 @@
 ################################################################################
 #                                  MAIN MAKEFILE                                 #
 ################################################################################
+# Header: ./include/libft.h
+
 NAME := libft.a
 
 include config.mk
 
-include lib/ft/c/c.mk
+include lib/ft/c_std/c_std.mk
 include lib/ft/bonus/bonus.mk
 include lib/ft/ft_ext/ft_ext.mk
 include lib/ft/ft_printf/ft_printf.mk
 include lib/ft/ext/ext.mk
 include lib/ft/gnl/gnl.mk
 
-ALL_OBJS := $(C_OBJS) $(BONUS_OBJS) $(FT_EXT_OBJS) $(PRINTF_OBJS) $(EXT_OBJS) $(GNL_OBJS)
+ALL_OBJS := $(C_STD_OBJS) $(BONUS_OBJS) $(FT_EXT_OBJS) $(PRINTF_OBJS) $(EXT_OBJS) $(GNL_OBJS)
 
 ################################################################################
 #                                  TARGETS                                       #
