@@ -6,12 +6,12 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 01:55:27 by mprunty           #+#    #+#             */
-/*   Updated: 2025/01/12 22:42:43 by mprunty          ###   ########.fr       */
+/*   Updated: 2025/01/13 08:37:08 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-long	ft_atoi(const char *nptr)
+long	ft_atol(const char *nptr)
 {
 	long	res;
 	int		neg;
