@@ -6,7 +6,7 @@
 /*   By: mprunty <mprunty@student.42london.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 04:16:42 by mprunty           #+#    #+#             */
-/*   Updated: 2025/01/12 04:46:49 by mprunty          ###   ########.fr       */
+/*   Updated: 2025/01/13 09:34:44 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -40,6 +40,8 @@ int	ft_isnumi(char *str)
 	int	neg;
 
 	neg = 1;
+	if (!str)
+		return (0);
 	while (ft_isspace(*str))
 		str ++;
 	if (str[0] == '-' || str[0] == '+')
@@ -66,8 +68,10 @@ int	ft_isnumf(char *str)
 	char	*intg;
 	char	*radix_pt;
 
+	if (!str)
+		return (0);
 	radix_pt = ft_strchr(str, '.');
-	intg = ft_substr(str, 0, (int)(str - radix_pt));
+	intg = ft_substr(str, 0, (int)(radix_pt - str));
 	return (ft_isnumi(intg) * ft_isnum(radix_pt + 1));
 }
 
