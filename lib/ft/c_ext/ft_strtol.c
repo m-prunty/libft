@@ -6,7 +6,7 @@
 /*   By: mprunty <mprunty@student.42london.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 22:44:16 by mprunty           #+#    #+#             */
-/*   Updated: 2025/01/13 08:57:30 by mprunty          ###   ########.fr       */
+/*   Updated: 2025/01/13 09:00:13 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -114,6 +114,7 @@ long	ft_strtol(const char *restrict nptr, char **restrict endptr, int base)
 
 	res = 0;
 	neg = 0;
+	overflow = LONG_MAX;
 	nptr = nptr + init_parse((char *)nptr, &base, endptr, &neg);
 	base = chk_base((char *)nptr, base);
 	if ((base == 0 || base == 16) && nptr[0] == '0'
