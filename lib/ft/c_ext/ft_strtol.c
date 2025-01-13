@@ -6,7 +6,7 @@
 /*   By: mprunty <mprunty@student.42london.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 22:44:16 by mprunty           #+#    #+#             */
-/*   Updated: 2025/01/13 04:11:25 by mprunty          ###   ########.fr       */
+/*   Updated: 2025/01/13 08:57:30 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -71,6 +71,7 @@ long	handle_overflow(long long res, int neg, char **endptr, const char *nptr)
 		*endptr = (char *)nptr;
 	return ((long)res);
 }
+
 /**
  * !!!!
  * WARNING: NOT HANDLING OVERFLOW YET
@@ -116,7 +117,7 @@ long	ft_strtol(const char *restrict nptr, char **restrict endptr, int base)
 	nptr = nptr + init_parse((char *)nptr, &base, endptr, &neg);
 	base = chk_base((char *)nptr, base);
 	if ((base == 0 || base == 16) && nptr[0] == '0'
-			&& (nptr[1] == 'x' || nptr[1] == 'X'))
+		&& (nptr[1] == 'x' || nptr[1] == 'X'))
 		nptr += 2;
 	while (get_char(*nptr) >= 0 && get_char(*nptr) < base && res <= overflow)
 		res = res * base + get_char(*nptr++);
@@ -142,8 +143,10 @@ void test_strtol(const char *nptr, int base) {
 
 	// Print results
 	printf("Input: \"%s\", Base: %d\n", nptr, base);
-	printf("  strtol: Result = %ld, Endptr = \"%s\", Errno = %d\n", std_result, end_std, std_errno);
-	printf("  ft_strtol: Result = %ld, Endptr = \"%s\", Errno = %d\n", ft_result, end_ft, ft_errno);
+	printf("  strtol: Result = %ld, Endptr = \"%s\", Errno = %d\n",
+	std_result, end_std, std_errno);
+	printf("  ft_strtol: Result = %ld, Endptr = \"%s\", Errno = %d\n",
+	ft_result, end_ft, ft_errno);
 
 	// Compare results
 	if (std_result != ft_result || std_errno != ft_errno || end_std != end_ft) {

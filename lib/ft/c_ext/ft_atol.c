@@ -6,7 +6,7 @@
 /*   By: mprunty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 01:55:27 by mprunty           #+#    #+#             */
-/*   Updated: 2025/01/13 08:37:08 by mprunty          ###   ########.fr       */
+/*   Updated: 2025/01/13 08:55:04 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -28,7 +28,7 @@ long	ft_atol(const char *nptr)
 	}
 	while (ft_isdigit(*nptr))
 	{
-		res = (res *10 + (*nptr - 48));
+		res = (res * 10 + (*nptr - 48));
 		nptr++;
 	}
 	return (res * neg);
