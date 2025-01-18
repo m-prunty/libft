@@ -6,7 +6,11 @@
 /*   By: mprunty <mprunty@student.42london.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 04:16:42 by mprunty           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/01/18 21:24:19 by mprunty          ###   ########.fr       */
+=======
+/*   Updated: 2025/01/13 09:34:44 by mprunty          ###   ########.fr       */
+>>>>>>> 3b5309e48c87bc414754a7faeb1741baaf76e28a
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -44,6 +48,8 @@ int	ft_isnumi(char *str)
 	if (!str)
 		return (0);
 	neg = 1;
+	if (!str)
+		return (0);
 	while (ft_isspace(*str))
 		str ++;
 	if (str[0] == '-' || str[0] == '+')
