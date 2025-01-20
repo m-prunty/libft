@@ -15,7 +15,7 @@ include lib/ft/ft_printf/ft_printf.mk
 include lib/ft/ext/ext.mk
 include lib/ft/gnl/gnl.mk
 
-ALL_OBJS := $(C_STD_OBJS) $(C_EXT_OBJS) $(BONUS_OBJS) $(FT_EXT_OBJS) $(PRINTF_OBJS) $(EXT_OBJS) $(GNL_OBJS)
+ALL_OBJS := $(C_STD_OBJS) $(C_EXT_OBJS)   $(BONUS_OBJS) $(FT_EXT_OBJS) $(PRINTF_OBJS) $(EXT_OBJS) $(GNL_OBJS)
 
 ################################################################################
 #                                  TARGETS                                       #
@@ -50,8 +50,8 @@ re: fclean all
 ################################################################################
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 	$(call progress_bar)
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 banner:
 	@printf "%b" "$(PURPLE)"
