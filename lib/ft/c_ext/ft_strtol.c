@@ -6,7 +6,7 @@
 /*   By: mprunty <mprunty@student.42london.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 22:44:16 by mprunty           #+#    #+#             */
-/*   Updated: 2025/01/13 09:00:13 by mprunty          ###   ########.fr       */
+/*   Updated: 2025/01/20 14:21:01 by mprunty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -106,7 +106,7 @@ long	handle_overflow(long long res, int neg, char **endptr, const char *nptr)
  * @param endptr 
  * @param base 
  */
-long	ft_strtol(const char *restrict nptr, char **restrict endptr, int base)
+long	ft_strtol(const char *nptr, char **endptr, int base)
 {
 	long long	res;
 	int			neg;
