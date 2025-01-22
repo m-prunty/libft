@@ -100,5 +100,5 @@ int		ft_isnumi(char *str);
 
 // ../lib/ft/c_ext/
 long	ft_atol(const char *nptr);
-long	ft_strtol(const char *restrict nptr, char **restrict endptr, int base);
+long	ft_strtol(const char *nptr, char **endptr, int base);
 #endif
